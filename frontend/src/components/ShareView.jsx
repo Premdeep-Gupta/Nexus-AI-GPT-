@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow as codeTheme } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { API_URL } from "../config";
 
 function ShareView() {
   const { shareId } = useParams();
@@ -17,7 +18,7 @@ function ShareView() {
     const fetchSharedChat = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4002/api/v1/nexusgpt/share/${shareId}`
+          `${API_URL}/api/v1/nexusgpt/share/${shareId}`
         );
         setSharedChat(data);
       } catch (err) {

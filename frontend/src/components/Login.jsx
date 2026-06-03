@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
 import { Eye, EyeOff, Mail, Lock, Sparkles } from "lucide-react";
+import { API_URL } from "../config";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ function Login() {
     setError("");
     try {
       const { data } = await axios.post(
-        "http://localhost:4002/api/v1/user/login",
+        `${API_URL}/api/v1/user/login`,
         {
           email: formData.email,
           password: formData.password,

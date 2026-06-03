@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Eye, EyeOff, Mail, Lock, User as UserIcon, Upload, Sparkles } from "lucide-react";
+import { API_URL } from "../config";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -44,7 +45,7 @@ function Signup() {
     setError("");
     try {
       const { data } = await axios.post(
-        "http://localhost:4002/api/v1/user/signup",
+        `${API_URL}/api/v1/user/signup`,
         {
           firstName: formData.firstName,
           lastName: formData.lastName,

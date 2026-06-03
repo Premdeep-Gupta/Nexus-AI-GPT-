@@ -28,6 +28,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow as codeTheme } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
+import { API_URL } from "../config";
 
 const LANGUAGES = [
   "Auto",
@@ -154,7 +155,7 @@ function Promt({
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.post(
-        "http://localhost:4002/api/v1/nexusgpt/run-python",
+        `${API_URL}/api/v1/nexusgpt/run-python`,
         { code: codeText },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -365,7 +366,7 @@ function Promt({
       }
 
       const { data } = await axios.post(
-        "http://localhost:4002/api/v1/nexusgpt/promt",
+        `${API_URL}/api/v1/nexusgpt/promt`,
         formData,
         {
           headers: {
@@ -545,7 +546,7 @@ function Promt({
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.post(
-        "http://localhost:4002/api/v1/nexusgpt/share",
+        `${API_URL}/api/v1/nexusgpt/share`,
         {
           messages: messages.map((msg) => ({
             role: msg.role,

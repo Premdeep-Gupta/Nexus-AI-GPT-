@@ -22,6 +22,7 @@ import {
 import { useAuth } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config";
 
 function Sidebar({ onClose, onNewChat, onLoadSession, currentMessages, sessionRefreshTrigger, activeSessionId, clearActiveSession, loading }) {
   const [user, setUser] = useState(
@@ -54,7 +55,7 @@ function Sidebar({ onClose, onNewChat, onLoadSession, currentMessages, sessionRe
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.get(
-        "http://localhost:4002/api/v1/user/settings",
+        `${API_URL}/api/v1/user/settings`,
         {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
@@ -88,7 +89,7 @@ function Sidebar({ onClose, onNewChat, onLoadSession, currentMessages, sessionRe
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.post(
-        "http://localhost:4002/api/v1/user/memories",
+        `${API_URL}/api/v1/user/memories`,
         { content: newMemoryText },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -110,7 +111,7 @@ function Sidebar({ onClose, onNewChat, onLoadSession, currentMessages, sessionRe
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.delete(
-        `http://localhost:4002/api/v1/user/memories/${memoryId}`,
+        `${API_URL}/api/v1/user/memories/${memoryId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
@@ -129,7 +130,7 @@ function Sidebar({ onClose, onNewChat, onLoadSession, currentMessages, sessionRe
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.post(
-        "http://localhost:4002/api/v1/user/upgrade",
+        `${API_URL}/api/v1/user/upgrade`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -154,7 +155,7 @@ function Sidebar({ onClose, onNewChat, onLoadSession, currentMessages, sessionRe
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.get(
-        "http://localhost:4002/api/v1/nexusgpt/sessions",
+        `${API_URL}/api/v1/nexusgpt/sessions`,
         {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
@@ -194,7 +195,7 @@ function Sidebar({ onClose, onNewChat, onLoadSession, currentMessages, sessionRe
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:4002/api/v1/nexusgpt/sessions/${sessionId}`,
+        `${API_URL}/api/v1/nexusgpt/sessions/${sessionId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
@@ -213,7 +214,7 @@ function Sidebar({ onClose, onNewChat, onLoadSession, currentMessages, sessionRe
   // ─── Logout ─────────────────────────────────────────────────────────────────
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost:4002/api/v1/user/logout", {
+      await axios.get(`${API_URL}/api/v1/user/logout`, {
         withCredentials: true,
       });
       localStorage.removeItem("user");
@@ -247,7 +248,7 @@ function Sidebar({ onClose, onNewChat, onLoadSession, currentMessages, sessionRe
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.put(
-        "http://localhost:4002/api/v1/user/update-profile",
+        `${API_URL}/api/v1/user/update-profile`,
         { firstName, lastName, profilePhoto },
         {
           headers: { Authorization: `Bearer ${token}` },
