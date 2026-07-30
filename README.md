@@ -24,11 +24,17 @@
 
 ## 📸 App Previews & Demos
 
-### 🖥️ Landing Page Overview
-![Homepage Preview](assets/homepage_preview.png)
+### 💬 Chat Interface (Main Workspace)
+![Chat Interface](assets/chat_interface.png)
 
-### 💬 Conversational Interface & Document Analyzer
-![Dashboard Preview](assets/chat_dashboard.png)
+### 📄 Multi-modal PDF & Document Analyzer
+![PDF Analyzer](assets/pdf_analyzer.png)
+
+### ⚙️ Profile Settings Overlay
+![Profile Settings](assets/profile_settings.png)
+
+### 💳 Subscription & Pro Plan Tiers
+![Subscription Settings](assets/subscription_settings.png)
 
 > [!TIP]
 > ### 🎥 Project Demo Video
@@ -97,8 +103,10 @@ graph TD
 Nexus GPT/
 ├── assets/                    # Project screenshots and banners
 │   ├── banner.png
-│   ├── homepage_preview.png
-│   └── chat_dashboard.png
+│   ├── chat_interface.png
+│   ├── pdf_analyzer.png
+│   ├── profile_settings.png
+│   └── subscription_settings.png
 ├── backend/                   # Node.js + Express backend API
 │   ├── controller/            # Authentication, session, and prompt controllers
 │   ├── middleware/            # JWT authentication validation middleware
