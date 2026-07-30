@@ -582,7 +582,7 @@ function Promt({
   return (
     <div className="flex flex-col items-center justify-between flex-1 w-full h-full pb-4 md:pb-6 relative overflow-hidden">
       {/* Premium Sticky Header Bar */}
-      <div className="w-full max-w-4xl flex items-center justify-between gap-4 border-b border-zinc-800/60 pb-3 mb-2 px-1 flex-shrink-0 animate-in fade-in duration-300">
+      <div className="w-full max-w-3xl flex items-center justify-between gap-4 border-b border-zinc-800/60 pb-3 mb-2 px-1 flex-shrink-0 animate-in fade-in duration-300">
         {/* Model Selector Dropdown */}
         <div className="relative">
           <button
@@ -758,7 +758,7 @@ function Promt({
       {/* Chat Messages */}
       <div 
         id="chat-export-container"
-        className="w-full max-w-4xl flex-1 overflow-y-auto mt-2 mb-4 space-y-6 max-h-[66vh] px-2 py-4 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent"
+        className="w-full max-w-3xl flex-1 overflow-y-auto mt-2 mb-4 space-y-6 max-h-[66vh] px-2 py-4 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent"
       >
         {messages.map((msg, index) => {
           const isAssistant = msg.role === "assistant";
@@ -1041,7 +1041,7 @@ function Promt({
       </div>
 
       {/* Input Box */}
-      <div className="w-full max-w-4xl relative mt-auto px-1">
+      <div className="w-full max-w-3xl relative mt-auto px-1">
         {/* Attachment Preview Strip */}
         {selectedImage && (
           <div className="flex items-center gap-3 mb-2 px-1 animate-in slide-in-from-bottom-2 duration-200">
